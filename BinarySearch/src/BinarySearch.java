@@ -13,13 +13,13 @@ public class BinarySearch {
 	
 		res=FindRecurse(array,key,0,array.length-1);
 		res2=FindRecurse(array2,key,0,array2.length-1);
-		System.out.println("Рекурсия1" +" "+res);
-		System.out.println("Рекурсия2"+" "+res2);
+		System.out.println("Recursive 1 array" +" "+res);
+		System.out.println("Recursive 2 array (empty)"+" "+res2);
 		
 		res2=FindInvariant(array,key,0,array.length-1);
 		res3=FindInvariant(array2,key,0,array2.length-1);
-		System.out.println("Рекурсия1" +" "+res2);
-		System.out.println("Рекурсия2"+" "+res3);
+		System.out.println("Invariant 1 array" +" "+res2);
+		System.out.println("Invariant 1 array (empty)"+" "+res3);
 		
 		
 	}
@@ -29,7 +29,7 @@ public class BinarySearch {
 	int center= (endp+startp)/2;
 	
 	if (startp>endp) return -1; 
-	else if (key<arr[startp]||key>arr[endp]) return -1;   //тест на наличие элемента в массиве
+	else if (key<arr[startp]||key>arr[endp]) return -1;   //checking if the element exist in array
 	else if (key<arr[center])	return FindRecurse(arr,key,startp,center-1);
 	else if (key>arr[center])	return FindRecurse(arr,key,center+1,endp);
 	
@@ -44,7 +44,7 @@ public class BinarySearch {
 	while ((startp <= endp) && (found!=true)) {
 	  center = (startp+endp)/2; 
 	  if (arr[center] == key) found = true;
-	  else if (startp==endp&&arr[center] != key) return -1;   //проверка последнего элемента если конец массива достигнут и элемент не найден
+	  else if (startp==endp&&arr[center] != key) return -1;   // checking last element if array and is reached and element not found
 	  else if (arr[center] < key)  startp= center+1;
 	  else endp = center-1;
 	}
